@@ -107,6 +107,12 @@ class TwitterImpl extends TwitterBaseImpl implements Twitter {
                 + "statuses/mentions_timeline.json", paging.asPostParameterArray()));
     }
 
+    @Override
+    public ResponseList<Status> getSNMentions(Paging paging) throws TwitterException {
+        return factory.createStatusList(get(conf.getRestBaseURL()
+                + "statuses/mentions.json", paging.asPostParameterArray()));
+
+    }
 
     /**
      * {@inheritDoc}
